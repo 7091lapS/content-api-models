@@ -32,6 +32,11 @@ val mavenSettings = Seq(
         <name>Regis Kuckaertz</name>
         <url>https://github.com/regiskuckaertz</url>
       </developer>
+      <developer>
+        <id>annebyrne</id>
+        <name>Anne Byrne</name>
+        <url>https://github.com/annebyrne</url>
+      </developer>
     </developers>
   ),
   publishMavenStyle := true,
@@ -40,14 +45,14 @@ val mavenSettings = Seq(
 )
 
 val commonSettings = Seq(
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.12.2",
   crossPaths := false,
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
   organization := "com.gu",
   licenses := Seq("Apache v2" -> url("http://www.apache.org/licenses/LICENSE-2.0.html"))
 ) ++ mavenSettings
 
-val circeVersion = "0.7.0"
+val circeVersion = "0.8.0"
 
 /**
   * Root project
@@ -135,14 +140,14 @@ lazy val json = Project(id = "content-api-models-json", base = file("json"))
   .settings(
     description := "Json parser for the Guardian's Content API models",
     libraryDependencies ++= Seq(
-      "com.gu" %% "fezziwig" % "0.4",
+      "com.gu" %% "fezziwig" % "0.5",
       "joda-time" % "joda-time" % "2.3",
       "io.circe" %% "circe-core" % circeVersion,
       "io.circe" %% "circe-generic" % circeVersion,
       "io.circe" %% "circe-parser" % circeVersion,
       "io.circe" %% "circe-optics" % circeVersion,
-      "com.github.agourlay" %% "cornichon" % "0.9.1" % "test",
-      "org.scalatest" %% "scalatest" % "2.2.1" % "test",
+      "com.github.agourlay" %% "cornichon" % "0.12.4" % "test",
+      "org.scalatest" %% "scalatest" % "3.2.0-SNAP7" % "test",
       "com.google.guava" % "guava" % "19.0" % "test"
     ),
     mappings in (Compile, packageDoc) := Nil
