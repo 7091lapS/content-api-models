@@ -121,14 +121,13 @@ lazy val scala = Project(id = "content-api-models-scala", base = file("scala"))
     },
     libraryDependencies ++= Seq(
       "org.apache.thrift" % "libthrift" % "0.9.1",
-      "com.twitter" %% "scrooge-core" % "4.5.0"
+      "com.twitter" %% "scrooge-core" % "4.18.0"
     ),
 
     /**
       * WARNING - upgrading the following will break clients
       */
-    dependencyOverrides += "org.apache.thrift" % "libthrift" % "0.9.1",
-    dependencyOverrides += "com.twitter" %% "scrooge-core" % "4.5.0"
+    dependencyOverrides += "org.apache.thrift" % "libthrift" % "0.9.1"
   )
 
 /**
